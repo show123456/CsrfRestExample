@@ -1,0 +1,30 @@
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath("org.springframework.boot:spring-boot-gradle-plugin:1.0.2.RELEASE")
+  }
+}
+
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+
+version = '1.0'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+
+  compile 'org.springframework.boot:spring-boot-starter-web'
+  compile 'org.springframework.boot:spring-boot-starter-security'
+
+  testCompile 'org.springframework.boot:spring-boot-starter-test'
+
+}
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '1.11'
+}
