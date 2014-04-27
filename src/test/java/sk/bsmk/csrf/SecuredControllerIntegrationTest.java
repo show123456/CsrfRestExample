@@ -44,7 +44,7 @@ public class SecuredControllerIntegrationTest {
 
   @Test
   @DirtiesContext
-  public void thatLoginIsAccessibleWitCredentials() {
+  public void thatLoginIsAccessibleWithCredentials() {
     ResponseEntity<String> response = user.getForEntity(URL + "login", String.class);
     assertThat(response.getStatusCode(), is(HttpStatus.OK));
     assertThat(response.getBody(), is(SecuredController.LOGGED_MESSAGE));
@@ -87,7 +87,7 @@ public class SecuredControllerIntegrationTest {
 
   @Test
   @DirtiesContext
-  public void thatUpdateInfoIsAccessibleWithCsrfToken() {
+  public void thatUpdateInfoIsAccessibleWithCsrfTokenAndCredentials() {
     // first user has to login
     ResponseEntity<String> loginResponse = user.getForEntity(URL + "login", String.class);
     // obtain CSRF token from headers
